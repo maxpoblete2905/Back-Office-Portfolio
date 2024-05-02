@@ -1,0 +1,37 @@
+<!-- app.component.html -->
+<nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <!-- Navbar -->
+    <ul class="flex items-center">
+      <li class="mr-6">
+        <p class="text-white hover:text-blue-300 cursor-pointer" routerLink="add">add</p>
+      </li>
+      <li class="mr-6">
+        <p class="text-white hover:text-blue-300 cursor-pointer" routerLink="list">list</p>
+      </li>
+      <li>
+        <a href="/opcion3" class="text-white hover:text-blue-300">Opción 3</a>
+      </li>
+    </ul>
+    <!-- Fin Navbar -->
+
+    <!-- Encabezado -->
+    <div class="text-white">
+      Hola, max
+    </div>
+    <!-- Fin Encabezado -->
+
+    <!-- Botón de Cerrar Sesión -->
+    <button
+      (click)="logout()"
+      class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
+    >
+      Cerrar sesión
+    </button>
+    <!-- Fin Botón de Cerrar Sesión -->
+  </div>
+</nav>
+
+<!-- Contenido principal -->
+  <router-outlet></router-outlet>
+<!-- Fin Contenido principal -->

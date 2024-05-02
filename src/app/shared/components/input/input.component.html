@@ -1,0 +1,6 @@
+<div class="mb-2">
+  <label *ngIf="label" [attr.for]="id" class="block text-sm">{{ label }}</label>
+  <input [type]="type" [id]="id" [formControlName]="formControlName"
+         class="focus:border-none w-11/12 input-field-dark text-black"
+  >
+</div>
