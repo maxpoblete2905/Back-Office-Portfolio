@@ -18,6 +18,12 @@
         id="user"
         type="text"
       />
+      <span
+      *ngIf="isValidfield('username')"
+      class="form-text text-danger"
+    >
+      {{ getFieldError('username')}}
+    </span>
     </div>
     <div class="mb-6">
       <label class="block text-white text-sm font-bold mb-2" for="password">
@@ -29,6 +35,12 @@
         id="password"
         type="password"
       />
+      <span
+      *ngIf="isValidfield('password')"
+      class="form-text text-danger"
+    >
+      {{ getFieldError('password')}}
+    </span>
     </div>
     <div class="flex items-center justify-between">
       <button
@@ -38,8 +50,6 @@
        Log In
       </button>
     </div>
-    <div *ngIf="errorMessage" class="text-red-500 text-sm mt-2">
-      {{ errorMessage }}
-    </div>
+
   </form>
 </div>
