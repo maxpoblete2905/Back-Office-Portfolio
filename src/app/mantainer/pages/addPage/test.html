@@ -1,0 +1,241 @@
+<div class="flex flex-col justify-center text-white">
+  <form [formGroup]="formulario" (ngSubmit)="onSave()">
+    <div class="grid grid-cols-2">
+      <!-- Tarjeta para el formulario -->
+      <div class="shadow-md rounded p-2 m-2">
+        <div class="bg-gray-700 rounded p-4 mb-2">
+          <h2 class="text-lg mb-4 border-b-2">Add Propiedades</h2>
+          <!-- titulo -->
+          <label for="titulo" class="block text-gray-200 text-sm my-2"
+            >Title:</label
+          >
+          <input
+            type="text"
+            id="title"
+            formControlName="title"
+            class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <!-- Formulario client -->
+          <label for="client" class="block text-gray-200 text-sm my-2"
+            >Client:</label
+          >
+          <input
+            type="text"
+            id="client"
+            formControlName="client"
+            class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <!-- Formulario client -->
+          <label for="companyName" class="block text-gray-200 text-sm my-2"
+            >Company name:</label
+          >
+          <input
+            type="text"
+            id="companyName"
+            formControlName="companyName"
+            class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <!-- Formulario client -->
+          <label
+            for="descriptionProject"
+            class="block text-gray-200 text-sm my-2"
+            >Description Project:</label
+          >
+
+          <textarea
+            id="descriptionProject"
+            formControlName="descriptionProject"
+            class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          ></textarea>
+          <!-- Formulario client -->
+          <label for="imageUrl" class="block text-gray-200 text-sm my-2"
+            >ImageUrl:</label
+          >
+          <input
+            type="text"
+            id="imageUrl"
+            formControlName="imageUrl"
+            class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <!-- Formulario client -->
+          <label for="position" class="block text-gray-200 text-sm my-2"
+            >Position:</label
+          >
+          <input
+            type="text"
+            id="position"
+            formControlName="position"
+            class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+
+        <div class="bg-gray-700 rounded p-4 mt-2">
+          <h2 class="text-lg mb-4 border-b-2">Add Views</h2>
+
+          <label for="src" class="block text-gray-200 text-sm mb-2">Src:</label>
+          <input
+            type="text"
+            id="src"
+            formControlName="src"
+            class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          />
+
+          <label for="description" class="block text-gray-200 text-sm my-2"
+            >Descripción:</label
+          >
+          <textarea
+            id="description"
+            formControlName="description"
+            class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          ></textarea>
+
+          <button
+            type="button"
+            (click)="agregarObjeto()"
+            class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded focus:outline-none focus:shadow-outline my-2"
+          >
+            Agregar View
+          </button>
+        </div>
+
+        <!-- Input para el nuevo string -->
+        <div class="bg-gray-700 rounded p-4 mt-2">
+          <h2 class="text-lg mb-4 border-b-2">Add Technologies</h2>
+
+          <label for="nuevoString" class="block text-gray-200 text-sm mb-2"
+            >Technologies:</label
+          >
+          <input
+            type="text"
+            id="nuevoString"
+            formControlName="nuevoString"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <button
+            type="button"
+            (click)="agregarString()"
+            class="mt-3 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Agregar tech
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjeta para mostrar datos -->
+      <div class="shadow-md rounded p-2 m-2">
+        <!-- Label para mostrar el Título -->
+        <div class="bg-gray-700 rounded p-4 mb-2">
+          <label class="block text-gray-200 text-sm font-bold mb-2"
+            >Título:</label
+          >
+          <span class="text-gray-300"
+            >{{ formulario.controls['title'].value }}
+          </span>
+          <!-- Label para mostrar el Título -->
+          <label class="block text-gray-200 text-sm font-bold mb-2"
+            >Client:</label
+          >
+          <span class="text-gray-300"
+            >{{ formulario.controls['client'].value }}
+          </span>
+          <!-- Label para mostrar el Título -->
+          <label class="block text-gray-200 text-sm font-bold mb-2"
+            >company Name:</label
+          >
+          <span class="text-gray-300"
+            >{{ formulario.controls['companyName'].value }}
+          </span>
+          <!-- Label para mostrar el Título -->
+          <label class="block text-gray-200 text-sm font-bold mb-2"
+            >project description:</label
+          >
+          <span class="text-gray-300"
+            >{{ formulario.controls['descriptionProject'].value }}
+          </span>
+          <!-- Label para mostrar el imageUrl -->
+          <label class="block text-gray-200 text-sm font-bold mb-2"
+            >project imageUrl:</label
+          >
+          <span class="text-gray-300"
+            >{{ formulario.controls['imageUrl'].value }}
+          </span>
+          <!-- Label para mostrar el imageUrl -->
+          <label class="block text-gray-200 text-sm font-bold mb-2"
+            >position:</label
+          >
+          <span class="text-gray-300"
+            >{{ formulario.controls['position'].value }}
+          </span>
+        </div>
+        <!-- Tabla para mostrar los View -->
+        <div class="bg-gray-700 rounded p-4 mb-2">
+          <h3 class="text-lg font-bold mb-2">Views:</h3>
+          <table
+            class="table-auto w-full"
+            *ngIf="formulario.controls['views'].value.length > 0"
+          >
+            <thead>
+              <tr>
+                <th class="w-1/2 px-4 py-2">Src</th>
+                <th class="w-1/2 px-4 py-2">Description</th>
+                <th class="w-1/8 px-4 py-2">Delete</th>
+                <!-- Aquí se ajustó el ancho de la columna del botón -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="
+                  let view of formulario.controls['views'].value;
+                  let i = index
+                "
+              >
+                <td class="w-1/2 border px-4 py-2">{{ view.src }}</td>
+                <td class="w-1/2 border px-4 py-2">{{ view.description }}</td>
+                <td class="w-1/8 border px-4 py-2 items-center justify-center">
+                  <!-- Se ajustó el ancho de la columna del botón y se centró el contenido -->
+                  <button
+                    type="button"
+                    (click)="eliminarObjeto(i)"
+                    class="text-red-500 font-bold"
+                  >
+                    delet
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Lista para mostrar los Technologies -->
+        <div class="bg-gray-700 rounded p-4 mb-2">
+          <h3 class="text-lg font-bold mb-2">Technologies:</h3>
+          <ul>
+            <li
+              *ngFor="
+                let tech of formulario.controls['technoligies'].value;
+                let i = index
+              "
+              class="text-gray-300"
+            >
+              {{ tech }}
+              <button
+                type="button"
+                (click)="eliminarString(i)"
+                class="text-red-500 font-bold ml-5"
+              >
+                X
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- Botón para agregar string -->
+        <button
+          type="submit"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
+        >
+          Enviar
+        </button>
+        <!-- Botón para enviar -->
+      </div>
+    </div>
+  </form>
+</div>

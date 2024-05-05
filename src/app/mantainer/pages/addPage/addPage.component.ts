@@ -23,8 +23,8 @@ export class AddPageComponent {
       descriptionProject: ['', Validators.required],
       position: ['', Validators.required],
       imageUrl: ['', Validators.required],
-      views: this.formBuilder.array([], Validators.required), // Aquí agregamos Validators.required para hacer el array obligatorio
-      technoligies: this.formBuilder.array([], Validators.required), // Lo mismo para el otro array
+      views: this.formBuilder.array([], Validators.required),
+      technoligies: this.formBuilder.array([], Validators.required),
       src: [''],
       description: [''],
       nuevoString: [''],

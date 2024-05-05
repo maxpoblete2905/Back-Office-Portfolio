@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404pageComponent } from './shared/pages/error404page/error404page.component';
+import { AuthGuard } from './auth/services/authGuard.service';
+
 
 const routes: Routes = [
   {
@@ -9,6 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'mantainer',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./mantainer/mantainer.module').then(m => m.MantainerModule)
   },
   {
