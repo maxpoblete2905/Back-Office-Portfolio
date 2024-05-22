@@ -31,6 +31,7 @@ export class ListPageComponent {
   ngOnInit(): void {
     this.firestoreService.getDocuments().subscribe({
       next: (projects) => {
+        console.log(projects)
         this.projects = projects;
       },
       error: (error) => {
