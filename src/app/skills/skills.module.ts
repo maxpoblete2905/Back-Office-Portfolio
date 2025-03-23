@@ -5,14 +5,14 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { ListPageComponent } from './pages/listPage/listPage.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddPageComponent } from './pages/addPage/addPage.component';
+import { AddSkillComponent } from './pages/addPage/addPage.component';
 import { SkillsRoutingModule } from './skills-routing.module';
 
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    AddPageComponent,
+    AddSkillComponent,
     ListPageComponent
   ],
   imports: [

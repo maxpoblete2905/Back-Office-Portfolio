@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirestoreService } from '../../../firestore/firebase.service';
-import { Project } from '../../../interfaces';
+import { Skill } from '../../../interfaces';
 
 
 @Component({
@@ -11,29 +11,29 @@ import { Project } from '../../../interfaces';
 })
 export class ListPageComponent {
 
-  private firestoreService: FirestoreService<Project>;
-  projects: Project[] = [];
+  private firestoreService: FirestoreService<Skill>;
+  skills: Skill[] = [];
 
-  projectSeleccionado: Project | null = null;
+  skilleleccionado: Skill | null = null;
 
-  mostrarDetalle(project: Project) {
-    this.projectSeleccionado = project;
+  mostrarDetalle(skill: Skill) {
+    this.skilleleccionado = skill;
   }
 
   cerrarDetalle() {
-    this.projectSeleccionado = null;
+    this.skilleleccionado = null;
   }
 
   constructor(private firestore: AngularFirestore) {
-    this.firestoreService = new FirestoreService<Project>(this.firestore);
-    this.firestoreService.setCollection('projects');
+    this.firestoreService = new FirestoreService<Skill>(this.firestore);
+    this.firestoreService.setCollection('skills');
   }
 
   ngOnInit(): void {
     this.firestoreService.getDocuments().subscribe({
-      next: (projects) => {
-        console.log(projects)
-        this.projects = projects;
+      next: (skill) => {
+        console.log(skill)
+        this.skills = skill;
       },
       error: (error) => {
         console.error('Error loading projects:', error);
@@ -41,22 +41,22 @@ export class ListPageComponent {
     });
   }
 
-  eliminarProyecto(id: string): void{
+  eliminarProyecto(id: string): void {
     const data = this.firestoreService.deleteDocument(id);
-    this.projectSeleccionado = null;
+    this.skilleleccionado = null;
     console.log('response service delete', data);
 
   }
 
 
-  solicitarEliminar(projectId: string | undefined) {
-    const idIngresado = prompt(`Por favor, ingrese el ID del proyecto que desea eliminar: ${projectId} `);
+  solicitarEliminar(skillId: string | undefined) {
+    const idIngresado = prompt(`Por favor, ingrese el ID del proyecto que desea eliminar: ${skillId} `);
 
-    if (idIngresado === projectId) {
+    if (idIngresado === skillId) {
       const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este proyecto definitivamente? Esta acción no se puede deshacer.');
 
       if (confirmacion) {
-        this.eliminarProyecto(projectId);
+        this.eliminarProyecto(skillId);
       }
     } else {
       alert('El ID ingresado no coincide con el ID del proyecto. La eliminación ha sido cancelada.');

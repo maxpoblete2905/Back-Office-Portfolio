@@ -41,7 +41,7 @@ export class ListPageComponent {
     });
   }
 
-  eliminarProyecto(id: string): void{
+  eliminarProyecto(id: string): void {
     const data = this.firestoreService.deleteDocument(id);
     this.projectSeleccionado = null;
     console.log('response service delete', data);
@@ -63,5 +63,8 @@ export class ListPageComponent {
     }
   }
 
+  saveData() {
+    console.log('Guardando datos...');
+  }
 
 }

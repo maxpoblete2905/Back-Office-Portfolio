@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './pages/layout/layout.component';
-import { AddPageComponent } from './pages/addPage/addPage.component';
 import { ListPageComponent } from './pages/listPage/listPage.component';
+import { AddSkillComponent } from './pages/addPage/addPage.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'add',
-        component: AddPageComponent
+        component: AddSkillComponent
       },
       {
         path: '**',
