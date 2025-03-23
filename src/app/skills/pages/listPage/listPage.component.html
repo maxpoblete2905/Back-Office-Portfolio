@@ -1,0 +1,70 @@
+<div class="flex justify-center bg-gray-400 h-screen">
+  <!-- Tabla de Datos -->
+  <div class="w-full md:w-4/12 mx-4 mt-3">
+    <button
+      routerLink="/mantainer/add"
+      class="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 my-2"
+    >
+      register new project
+    </button>
+    <table
+      class="table-auto w-full bg-gray-700 text-white rounded"
+      *ngIf="projects && projects.length > 0"
+    >
+      <thead class="bg-blue-800">
+        <tr>
+          <th class="px-4 py-2">Title</th>
+          <th class="px-4 py-2">Details</th> <!-- Columna para el botón de detalles -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects" class="border-b border-gray-700">
+          <td class="px-4 py-2">{{ project.title }}</td>
+          <td class="px-4 py-2">
+            <button type="button" (click)="mostrarDetalle(project)"
+              class="text-blue-500 font-bold">Ver</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Card de Datos Detallados -->
+<!-- Card de Datos Detallados -->
+<div class="w-full md:w-8/12 mx-4 mt-3">
+  <div *ngIf="projectSeleccionado" class="max-w-xl mx-auto bg-gray-700 rounded-lg shadow-md overflow-hidden text-white">
+    <div class="px-6 py-2">
+      <h2 class="text-xl font-bold mb-2">{{ projectSeleccionado.title }}</h2>
+      <!-- Párrafo con información, cambia el color del texto aquí -->
+      <p class="text-gray-200 mb-4">{{ projectSeleccionado.description }}</p>
+      <div class="px-6 py-2">
+        <p><span class="font-bold text-gray-200">ID:</span> {{ projectSeleccionado.id }}</p>
+        <p><span class="font-bold text-gray-200">Company Name:</span> {{ projectSeleccionado.companyName }}</p>
+        <p><span class="font-bold text-gray-200">Position:</span> {{ projectSeleccionado.position }}</p>
+        <p><span class="font-bold text-gray-200">Client:</span> {{ projectSeleccionado.client }}</p>
+        <p><span class="font-bold text-gray-200">Image URL:</span> {{ projectSeleccionado.imageUrl }}</p>
+        <p><span class="font-bold text-gray-200">Technologies:</span></p>
+        <ul class="list-disc pl-4">
+          <!-- Elementos de lista con información, cambia el color del texto aquí -->
+          <li *ngFor="let technology of projectSeleccionado.technologies" class="text-gray-200">{{ technology }}</li>
+        </ul>
+        <p><span class="font-bold text-gray-200">Views:</span></p>
+        <ul class="list-disc pl-4">
+          <!-- Elementos de lista con información, cambia el color del texto aquí -->
+          <li *ngFor="let view of projectSeleccionado.views" class="text-gray-200">{{ view.src }} - {{ view.description }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="px-6 py-4 bg-gray-700 flex justify-end">
+      <div class="mr-2">
+        <button type="button" (click)="solicitarEliminar(projectSeleccionado.id)" class="w-full md:w-auto text-red-500 font-bold">Eliminar</button>
+      </div>
+      <div>
+        <button type="button" (click)="cerrarDetalle()" class="w-full md:w-auto text-blue-500 font-bold">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
